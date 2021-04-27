@@ -1,0 +1,5 @@
+body #messages{
+    border: 2px solid black;
+    height: 360px;
+    overflow: scroll;
+}
