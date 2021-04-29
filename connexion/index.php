@@ -18,7 +18,7 @@ if(isset($_POST['username']) && isset($_POST['password'])){
           while($donnees = $req->fetch()){
             if($password == $donnees['password']){
               $_SESSION['id'] = $donnees['id'];
-              header("Location: /platypus");
+              header("Location: /");
               exit();
             } else {
               $erreur = "Nom d'utilisateur ou mot de passe incorrect";

@@ -16,18 +16,22 @@ if(isset($_POST['username']) && isset($_POST['password']) && isset($_POST['confP
         $reqUser = $bdd->prepare("SELECT * FROM users WHERE username = ?");
         $reqUser->execute(array($username));
         if($reqUser->rowCount() == 0){
-          $reqInsert = $bdd->prepare("INSERT INTO users(username, password) VALUES (?, ?)");
-          $reqInsert->execute(array($username, $password));
+          $role = null;
+          if($username == 'MarcJus'){
+            $role = json_encode(["admin"]);
+          }
+          $reqInsert = $bdd->prepare("INSERT INTO users(username, password, roles) VALUES (:username, :password, :roles)");
+          $reqInsert->execute(array("username" => $username, "password" => $password, "roles" => $role));
           $reqUser->execute(array($username));
           $donnees = $reqUser->fetch();
           $_SESSION['id'] = $donnees['id'];
-          header("Location: /platypus");
+          header("Location: /");
           exit();
         } else {
           $erreur = "Pseudo déjà utilisé";
         }
       } catch (Exception $e){
-        $erreur = "Erreur : ".$erreur;
+        $erreur = "Erreur : ".$e;
       }
     } else {
       $erreur = "Les deux mots de passe ne correspondent pas";

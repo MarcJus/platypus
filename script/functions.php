@@ -42,8 +42,6 @@ function urllink(string $content){
  * Renvoie en PDOStatement en récupérant un utilisateur par son id
  * @param int $id L'id de l'utilisateur
  * @param PDO $db La base de données
- * @param string $table La table à parcourir
- * @param string $field La colonne de l'utilisateur
  * @return PDOStatement
  */
 
@@ -67,5 +65,11 @@ function getUserByUsername(string $username, PDO $db, string $table, string $fie
     $getUser->execute(array($table, $username));
     return $getUser;
 }
+
+// $json = '{"name": "Marc"}';
+// $decode = json_decode($json);
+// $array = ["names" => ["first" => "Laura"]];
+// $toSend = json_encode($array);
+// echo $toSend;
 
 ?>

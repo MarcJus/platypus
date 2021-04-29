@@ -1,6 +1,5 @@
 body{
-  background-image: url(https://vonguru.fr/wp-content/uploads/2019/01/team-vg-jeux-video-attendus-2019-cover-jeu-video-vonguru-min.jpg);
-  background-size: cover;
+	background-color: orange;
 }
 
 /* Créer une animation */
@@ -32,7 +31,7 @@ body{
   }
 
   50%{
-    color: #05f7f0;
+  	color: #05f7f0;
   }
   
   90% {
@@ -91,50 +90,14 @@ h1{
     -webkit-animation-direction: alternate;
 }
 
-.logo {
-  position: absolute;
-  top: 2%;
-  left: 50%;
-  transform: translate(-50%, 0);
-  width: 55px;
-  height: 55px;
-  margin-top: 3%;
-  margin-left: 30%;
-  border-radius: 50%;
-  font-size: 1.8em;
-  background-color: #6ba1f9;
-  color: #f0f6fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-}
-
-
 h3{
-  color: black;
-  font-family: 'Oswald', sans-serif;
-}
-
-h4{
-  position: absolute;
-  top: 2%;
-  left: 50%;
-  width: 6px;
-  height: 10px;
-  margin-top: 6%;
-  margin-left: 30%;
-  font-size: 1.8em;
-  color: #f0f6fb;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
+	color: black;
+	font-family: 'Oswald', sans-serif;
 }
 
 p{
-  color: black;
-  font-family: 'Oswald', sans-serif;
+	color: black;
+	font-family: 'Oswald', sans-serif;
 }
 
 .container{
@@ -152,31 +115,26 @@ p{
 }
 
 header{
-  font-family: 'Oswald', sans-serif;
+	font-family: 'Oswald', sans-serif;
 }
 
 header nav{
+	color: #FFFFFF;
   display: flex;
   justify-content: center;
-  align-items: center;
-}
-
-header .header-top .account{
-  display: flex;
-  width: 500px;
 }
 
 header nav ul{
-  list-style: none;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	margin: 0;
+	padding: 0;
 }
 
 header nav ul li {
-  margin: 2px;
+	margin: 2px;
   padding: 0;
   float: left;
-  width: 350px;
+  width: 520px;
   height: 40px;
   background-color: rgba(0, 0, 0, 0.8);
   line-height: 40px;
@@ -186,14 +144,14 @@ header nav ul li {
 } 
 
 header nav ul li a{
-    display: block;
-    color: white;
+  display: block;
+  color: white;
 }
 
 header nav ul li a:hover{
-  background-color: orange;
-  opacity: 0.5;
-  animation-name: monAnimation;
+	background-color: orange;
+	opacity: 0.5;
+	animation-name: monAnimation;
     -webkit-animation-name: monAnimation;
   
     animation-duration: 1s;
@@ -214,5 +172,7 @@ header nav ul li ul li{
 }
 
 header nav ul li:hover ul li{
-  display: block;
+	display: block;
 }
+
+

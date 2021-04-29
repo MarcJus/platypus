@@ -1,10 +1,12 @@
 <?php
 session_start();
-include("../../script/functions.php");
+include("../script/functions.php");
 
 $db = db_connect();
+$return = null;
 
 if(isset($_POST['message']) && !empty($_POST['message'])){
+    header("Content-Type: application/json");
     if(isset($_SESSION['id'])){
         $message = htmlspecialchars($_POST['message']);
         $date = date("H:i d-m-Y");
@@ -17,14 +19,17 @@ if(isset($_POST['message']) && !empty($_POST['message'])){
                 "time" => $date,
                 "message" => $message
             ));
+            $return = ['success' => true];
+            echo json_encode($return);
         } catch (PDOException $e){
-            echo json_encode("{error: ".$e."}");
+            $return = ['success' => false, 'error' => $e];
+            http_response_code(500);
+            echo json_encode($return);
         }
     } else {
-        echo json_encode("{
-            success: false,
-            error: Vous n'etes pas connecté
-        }");
+        $return = ['success' => false, 'error: Vous n\'etes pas connecté'];
+        http_response_code(500);
+        echo json_encode($return);
     }
     
 } else {

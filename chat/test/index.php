@@ -30,13 +30,22 @@ if(isset($_SESSION['id'])){
         <title>Chat Test</title>
     </head>
     <body>
+        <h1>Bonjour <?= $username ?></h1>
+        <h2><a href="/platypus/connexion/">Changer d'utilisateur</a></h2>
         <div id="messages">
             <?php
             try{
                 $db = db_connect();
                 $requete = $db->query("SELECT * FROM (SELECT * FROM chat_messages ORDER BY id)T ORDER BY T.id ASC");
                 while($donnees = $requete->fetch()){
-                    echo '<p id="'.$donnees['id'].'"> <strong>MarcJus</strong> : '.$donnees['message']."</php>";
+                    $getUser = getUserById($donnees['user'], $db);
+                    $donneesUser = $getUser->fetch();
+                    $messageUser = $donneesUser['username'];
+                    if($username == $messageUser){
+                        echo '<p id="'.$donnees['id'].'"> <strong style="color: red">'.$messageUser.'</strong> : '.$donnees['message']."</php>";
+                    } else {
+                        echo '<p id="'.$donnees['id'].'"> <strong>'.$messageUser.'</strong> : '.$donnees['message']."</php>";
+                    }
                 }
                 $requete->closeCursor();
             } catch (PDOException $e){

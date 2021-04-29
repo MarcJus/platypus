@@ -9,7 +9,10 @@ if(!empty($_GET['id'])){
         $message = null;
     
         while($donnees = $requete->fetch()){
-            $message =  '<p id="'.$donnees['id'].'"> <strong>MarcJus</strong> : '.$donnees['message']."</php>";
+            $getUser = getUserById($donnees['user'], $db);
+            $donneesUser = $getUser->fetch();
+            $username = $donneesUser['username'];
+            $message =  '<p id="'.$donnees['id'].'"> <strong>'.$username.'</strong> : '.$donnees['message']."</php>";
         }
         $requete->closeCursor();
         echo $message;

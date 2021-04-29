@@ -29,7 +29,7 @@ $("#message").on("click", ((e: JQuery.ClickEvent<HTMLElement>) => {
 
 function scrollBottom(): void{
     let messages: Element = document.querySelector("#messages");
-    messages.scrollTo({top: messages.scrollHeight});    
+    messages.scrollTo({top: messages.scrollHeight});
 }
 
 function charger(): void{
