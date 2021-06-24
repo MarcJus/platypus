@@ -48,14 +48,14 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
                 $file_name = $middle_file[1];
             }
         }
-        echo $file_name;
-        if(strpos($file_name, "filename*=UTF-8''") ==! false){
-            echo "contains";
-
+        if(strpos($file_name, "filename*=UTF-8''") == false){
+            
         } else {
-            $file_name_header = explode('"', $file_name);
+            echo $file_name;
+            $file_name_header = explode("''", $file_name);
             $file_name_complete = explode(".", $file_name_header[1]);
             $file_name_extension = $file_name_complete[1];
+            $file_name_extension = str_replace(array("\n", "\r"), "", $file_name_extension);
             switch ($file_name_extension) {
                 case "pdf":
                     header("Content-Type: application/pdf");
@@ -73,6 +73,7 @@ if(!empty($_POST['username']) && !empty($_POST['password'])){
                     header("Content-Type: application/jpeg");
                     break;
                 default:
+                    echo "default";
                     break;
             }
             header("Content-Disposition: Attachement; filename=".$file_name_header[1]);

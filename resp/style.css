@@ -1,0 +1,57 @@
+@media (max-width: 425px) {
+    body{
+        background-color: red;
+    }
+}
+
+body
+{
+    width :100% ;
+}
+
+
+
+#global
+{
+    width :100% ;
+    padding :25px ;
+    background :#3c3c3c ;
+}
+
+ 
+
+header
+{
+    width :100%;
+}
+
+ 
+
+#menu-gauche
+{
+    width :20% ;
+    float :left ;
+}
+
+ 
+
+#contenu
+{
+    width :60% ;
+    float :left ;
+}
+
+ 
+
+#sidebar-droite
+{
+    width :20% ;
+    float :left ;
+}
+
+ 
+
+footer
+{
+    width :100%
+}
